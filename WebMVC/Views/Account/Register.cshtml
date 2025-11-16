@@ -1,0 +1,53 @@
+@model WebMVC.Dtos.RegisterDto
+
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<section class="auth-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2>Создать аккаунт</h2>
+                        <p>Заполните форму для регистрации</p>
+                    </div>
+
+                    <form asp-action="Register" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="UserName" class="form-label">Имя пользователя</label>
+                            <input asp-for="UserName" class="form-control form-control-lg" placeholder="Введите имя" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" type="email" class="form-control form-control-lg" placeholder="example@mail.com" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="Password" class="form-label">Пароль</label>
+                            <input asp-for="Password" type="password" class="form-control form-control-lg" placeholder="Минимум 6 символов" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">Зарегистрироваться</button>
+
+                        <div class="text-center">
+                            <p class="mb-0">Уже есть аккаунт? <a asp-action="Login" class="auth-link">Войти</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
