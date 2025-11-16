@@ -43,7 +43,7 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    [Route("Account/Register")]
+    [Route("api/Account/Register")]
     public async Task<IActionResult> RegisterJson([FromBody] RegisterDto registerDto)
     {
         if (!ModelState.IsValid)
@@ -86,7 +86,7 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    [Route("Account/Login")]
+    [Route("api/Account/Login")]
     public async Task<IActionResult> LoginJson([FromBody] LoginDto loginDto)
     {
         if (!ModelState.IsValid)
@@ -99,6 +99,8 @@ public class AccountController : Controller
 
         return Ok(new { user = userDto, token });
     }
+    
+    
 
     [HttpPost]
     public async Task<IActionResult> Logout()
