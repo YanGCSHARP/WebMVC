@@ -1,5 +1,12 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebMVC.Data;
+using WebMVC.Models;
+using WebMVC.Repositories;
+using WebMVC.Repositories.Interfaces;
+using WebMVC.Services;
+using WebMVC.Services.Interfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +18,43 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+
+builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<IJwtTokenService, JWTokenSerivce>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddAutoMapper(typeof(Program));
+
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+        options.ExpireTimeSpan = TimeSpan.FromDays(7);
+    });
 // Добавление Swagger
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "WebMVC API",
+        Version = "v1"
+    });
+    
+    // Показывать только методы с [Consumes("application/json")]
+    options.DocInclusionPredicate((docName, apiDesc) =>
+    {
+        var consumes = apiDesc.SupportedRequestFormats
+            .Any(f => f.MediaType == "application/json");
+        
+        return consumes;
+    });
+});
+
 
 
 // Настройка сессий для корзины
