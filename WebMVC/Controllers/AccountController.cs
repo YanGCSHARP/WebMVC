@@ -23,8 +23,7 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    [Route("Account/Register")]
-    public async Task<IActionResult> RegisterForm([FromForm] RegisterDto registerDto)
+    public async Task<IActionResult> Register([FromForm] RegisterDto registerDto)
     {
         if (!ModelState.IsValid)
             return View(registerDto);
@@ -67,8 +66,7 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    [Route("Account/Login")]
-    public async Task<IActionResult> LoginForm([FromForm] LoginDto loginDto)
+    public async Task<IActionResult> Login([FromForm] LoginDto loginDto)
     {
         if (!ModelState.IsValid)
             return View(loginDto);
@@ -123,7 +121,7 @@ public class AccountController : Controller
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, userDto.Id.ToString()),
-            new Claim(ClaimTypes.Name, userDto.Username),
+            new Claim(ClaimTypes.Name, userDto.UserName),
             new Claim(ClaimTypes.Email, userDto.Email)
         };
 

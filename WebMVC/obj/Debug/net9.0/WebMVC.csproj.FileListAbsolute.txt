@@ -52,7 +52,6 @@ C:\Users\Yang\RiderProjects\WebMVC\WebMVC\obj\Debug\net9.0\WebMVC.csproj.Assembl
 C:\Users\Yang\RiderProjects\WebMVC\WebMVC\obj\Debug\net9.0\WebMVC.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Yang\RiderProjects\WebMVC\WebMVC\obj\Debug\net9.0\WebMVC.csproj.Up2Date
 C:\Users\Yang\RiderProjects\WebMVC\WebMVC\obj\Debug\net9.0\WebMVC.sourcelink.json
-C:\Users\Yang\RiderProjects\WebMVC\WebMVC\obj\Debug\net9.0\compressed\lqqsicd9zv-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\Yang\RiderProjects\WebMVC\WebMVC\obj\Debug\net9.0\compressed\6mhg4tvg6s-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\Yang\RiderProjects\WebMVC\WebMVC\obj\Debug\net9.0\compressed\2ekq5b67au-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\Yang\RiderProjects\WebMVC\WebMVC\obj\Debug\net9.0\compressed\wbionfn2v0-{0}-t1cqhe9u97-t1cqhe9u97.gz
@@ -210,3 +209,4 @@ C:\Users\Yang\RiderProjects\WebMVC\WebMVC\bin\Debug\net9.0\Microsoft.IdentityMod
 C:\Users\Yang\RiderProjects\WebMVC\WebMVC\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Yang\RiderProjects\WebMVC\WebMVC\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Yang\RiderProjects\WebMVC\WebMVC\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Yang\RiderProjects\WebMVC\WebMVC\obj\Debug\net9.0\compressed\lqqsicd9zv-{0}-fwemefysbj-fwemefysbj.gz

@@ -1,8 +1,71 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Главная";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="hero-title">Аренда автомобилей</h1>
+                <p class="hero-subtitle">Ваш идеальный автомобиль ждет вас. Быстро, удобно, надежно.</p>
+                <div class="hero-buttons">
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <a href="#cars" class="btn btn-primary btn-lg">Посмотреть автомобили</a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-lg">Начать сейчас</a>
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-outline-secondary btn-lg">Войти</a>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&h=600&fit=crop" alt="Автомобиль" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Быстрое бронирование</h3>
+                    <p>Забронируйте автомобиль за несколько кликов</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Выгодные цены</h3>
+                    <p>Лучшие предложения на рынке аренды</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Безопасность</h3>
+                    <p>Все автомобили застрахованы и проверены</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Готовы начать?</h2>
+            <p>Присоединяйтесь к тысячам довольных клиентов</p>
+            @if (User.Identity?.IsAuthenticated != true)
+            {
+                <a asp-controller="Account" asp-action="Register" class="btn btn-light btn-lg">Зарегистрироваться</a>
+            }
+        </div>
+    </div>
+</section>
